@@ -1,0 +1,25 @@
+<svg width="180" height="48" viewBox="0 0 180 48" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="24" cy="24" r="22" fill="#16a34a"/>
+  <g transform="translate(24,24) rotate(45)">
+    <path d="M -10 -3
+             C -10 -7, -7 -10, -3 -10
+             C -1 -10, 1 -9, 2.5 -7.5
+             L -7.5 2.5
+             C -9 1, -10 -1, -10 -3 Z"
+          fill="#ffffff"/>
+    <rect x="-3.5" y="-1.5" width="15" height="6" rx="1" fill="#ffffff"/>
+    <path d="M 7 7
+             C 9 9, 10 11, 10 13
+             C 10 17, 7 20, 3 20
+             C 1 20, -1 19, -2.5 17.5
+             L 2.5 12.5
+             L 7 7 Z"
+          fill="#ffffff"/>
+    <circle cx="-7" cy="-7" r="3.3" fill="#ffffff"/>
+    <circle cx="-7" cy="-7" r="1.5" fill="none" stroke="#16a34a" stroke-width="0.8"/>
+    <circle cx="2.5" cy="12.5" r="3.3" fill="#ffffff"/>
+    <circle cx="2.5" cy="12.5" r="1.5" fill="none" stroke="#16a34a" stroke-width="0.8"/>
+  </g>
+  <text x="58" y="22" font-family="sans-serif" font-size="14" font-weight="600" fill="#064e3b">Taller</text>
+  <text x="58" y="38" font-family="sans-serif" font-size="14" font-weight="600" fill="#064e3b">Reparaciones</text>
+</svg>
