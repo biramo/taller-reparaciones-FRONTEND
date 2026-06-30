@@ -14,16 +14,27 @@ async function request(endpoint, options = {}) {
     headers,
   });
 
-  if (response.status === 401 || response.status === 403) {
+  if (response.status === 401) {
     localStorage.removeItem('token');
     window.location.href = '/login';
     throw new Error('No autorizado');
   }
 
-  if (!response.ok) {
-    const error = await response.json().catch(() => ({ message: 'Error desconocido' }));
-    throw new Error(error.message || `Error ${response.status}`);
-  }
+  //Creamos un error para saber que falló
+ if (!response.ok) {
+  const error = await response.json().catch(() => ({
+    message: response.status === 403 
+        ? 'No tienes permisos suficientes para realizar esta acción.' 
+        : 'Error desconocido',
+  }));
+
+  const customError = new Error(error.message || `Error ${response.status}`);
+  customError.status = response.status;
+  customError.timestamp = error.timestamp;
+  customError.data = error;
+
+  throw customError;
+}
 
   if (response.status === 204) return null; // DELETE sin contenido
 

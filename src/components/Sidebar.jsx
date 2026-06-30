@@ -15,7 +15,7 @@ export default function Sidebar({active}){
     ];
 
     return(
-        <aside className={` bg-gray-200 mx-1 my-1  border-4 border-gray-700 flex flex-col justify-between transition-all duration-300 h-105 md:h-100 ${active ? "w-45 md:w-60  " : "w-0 p-0 opacity-0 border-0 mx-0"} `}> 
+        <aside className={` bg-gray-200 mx-1 my-1  border-4 border-gray-700 flex flex-col justify-between transition-all duration-300 h-105 md:h-120 ${active ? "w-45 md:w-90  " : "w-0 p-0 opacity-0 border-0 mx-0"} `}> 
             <div className=" px-4 py-3 border-b-2 border-emerald-950 bg-emerald-950 flex flex-col gap-2 w-full shrink-0">
                 <h3 className="font-extrabold text-white">GESTIÓN DEL TALLER</h3>
                 <p className="font-semibold text-green-300">Bienvenido, Usuario</p>
