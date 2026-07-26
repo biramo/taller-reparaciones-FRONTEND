@@ -5,9 +5,7 @@ export default function renderErrorNoConnection({onClick}){
                 <p className="font-bold">❌ Error al cargar los datos</p>
                 <p className="text-sm">No se pudo conectar con el servidor. Por favor, intenta más tarde.</p>
                 <button 
-                    onClick={() => {
-                        onClick();
-                    }}
+                    onClick={onClick}
                     className="mt-2 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 cursor pointer"
                 >
                     Reintentar

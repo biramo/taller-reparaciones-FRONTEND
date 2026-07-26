@@ -24,11 +24,12 @@ export default function Register(){
     e.preventDefault();
     try{
         setError("");
-    setLoading(true);
 
-    if (password !== verifyPassword) {
+        if (password !== verifyPassword) {
         setError("Las contraseñas no coinciden");
         return;
+
+        setLoading(true);
     }
     const registered = await register(username, password);
 
@@ -62,12 +63,14 @@ export default function Register(){
     fields={[
       {
         name: "username",
+        label:"Usuario",
         placeholder: "usuario",
         value: username,
         onChange: (e) => setUsername(e.target.value),
       },
       {
         name: "password",
+        label:"Contraseña",
         type: "password",
         placeholder: "password",
         value: password,
@@ -75,6 +78,7 @@ export default function Register(){
       },
       {
         name:"repeat-password",
+        label:"Repite la contraseña",
         type:"password",
         placeholder:"repeat the password",
         value:verifyPassword,
@@ -85,7 +89,7 @@ export default function Register(){
     footer={
       <p className="text-sm text-gray-600">
         ¿tienes cuenta?
-        <Link to="/register" className="text-blue-600 hover:underline">
+        <Link to={ROUTES.LOGIN} className="text-blue-600 hover:underline">
           {" "}Inicia Sesion
         </Link>
       </p>

@@ -26,9 +26,9 @@ export default function AppLayout() {
           - min-w-0: CRUCIAL. Evita que el main se desborde infinitamente si la tabla es grande.
           - flex flex-col: para alinear el botón del menú y el contenido de la página de forma limpia.
         */}
-        <main className="grow min-w-0 p-4 flex flex-col gap-4">
+        <main className="grow min-w-0 p-4 flex flex-col gap-4 ">
           
-          {/* El botón del menú ahora vive aquí, abriendo camino al diseño de abajo */}
+          {/* El botón del aside */}
           <button 
             className="w-12 h-12 bg-gray-200 flex items-center justify-center hover:bg-gray-400 cursor-pointer rounded-md shrink-0"
             onClick={() => setActive(!active)}
@@ -37,7 +37,7 @@ export default function AppLayout() {
           </button>
 
           {/* Aquí es donde se renderiza Clientes, Órdenes, etc. */}
-          <div className="grow w-full">
+          <div className="grow flex flex-col gap-4">
             <Outlet />
           </div>
         </main>

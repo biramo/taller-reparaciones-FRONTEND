@@ -8,6 +8,7 @@ export default function AuthProvider({children}){
     //Cargamos token si existe
     const [token, setToken]=useState(localStorage.getItem("token"))
     const [loading, setLoading] = useState(false);
+    const [username, setUsername]=useState(localStorage.getItem("username"))
     
     useEffect(() => {
         if (token) {
@@ -16,6 +17,14 @@ export default function AuthProvider({children}){
         localStorage.removeItem('token');
         }
      }, [token]);
+
+    useEffect(() => {
+        if (username) {
+            localStorage.setItem("username", username);
+        } else {
+            localStorage.removeItem("username");
+        }
+    }, [username]);
 
     const login = async (username, password) => {
       try {
@@ -26,6 +35,7 @@ export default function AuthProvider({children}){
         }
 
             setToken(data.token);
+            setUsername(username);
             return true;
         } catch (error) {
             console.error("Error login:", error);
@@ -51,10 +61,11 @@ export default function AuthProvider({children}){
 
      const logout = () => {
         setToken(null);
+        setUsername(null)
     };
 
     return (
-    <AuthContext.Provider value={{ token, loading, login, register, logout, isAuthenticated: !!token }}>
+    <AuthContext.Provider value={{ token, username, loading, login, register, logout, isAuthenticated: !!token }}>
       {children}
     </AuthContext.Provider>
   );

@@ -1,3 +1,5 @@
+import { resumeToPipeableStream } from "react-dom/server";
+
 const API_URL = import.meta.env.VITE_API_URL;
 
 async function request(endpoint, options = {}) {
@@ -22,6 +24,7 @@ async function request(endpoint, options = {}) {
 
   //Creamos un error para saber que falló
  if (!response.ok) {
+  
   const error = await response.json().catch(() => ({
     message: response.status === 403 
         ? 'No tienes permisos suficientes para realizar esta acción.' 
